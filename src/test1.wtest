@@ -1,0 +1,10 @@
+
+
+describe "bici_1"{
+	test "test_bici_1" {
+		
+		assert.that(true)
+	
+	}	
+}
+

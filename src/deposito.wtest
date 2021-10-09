@@ -1,0 +1,50 @@
+
+import bici.*
+import accesorio.*
+import deposito.*
+
+describe "Test de deposito"{
+	var b1 = new Bici(rodado=28,largo=150,marca="Olmo")
+		
+	var b2 = new Bici(rodado=26,largo=110,marca="Legnano")
+		
+	var b3 = new Bici(rodado = 20, largo = 90,marca="Legnano")
+		
+	var dep = new Deposito()
+		
+	method initialize(){
+		//var b1 = new Bici(rodado=28,largo=150,marca="Olmo")
+		b1.agregarAccesorio(farolito) 
+		
+		//var b2 = new Bici(rodado=26,largo=110,marca="Legnano")
+		b2.agregarAccesorio(farolito)
+		
+		//var b3 = new Bici(rodado = 20, largo = 90,marca="Legnano")
+		b3.agregarAccesorio(new MorralDeBici(largo = 6, ojoDeGato = false))
+		
+		//var dep = new Deposito()
+		
+		dep.agregarBici(b1)
+		dep.agregarBici(b2)
+		dep.agregarBici(b3)
+	}
+	
+	test "Bicicletas más rapidas" {
+		assert.equals([b1,b2], dep.bicisRapidas())	
+	}
+	test "Marcas de las bicicletas"{
+		assert.equals(#{"Olmo", "Legnano"}, dep.marcas() )
+	}
+	test "Deposito nocturo"{
+		assert.equals(false, dep.esNocturno())
+	}
+	
+	test "Puede cargar 10k, pero no 50kg"{
+		assert.equals(true,dep.hayCapazDeCargar_(10))
+		assert.equals(false,dep.hayCapazDeCargar_(50))
+	}
+	
+	
+	
+
+}

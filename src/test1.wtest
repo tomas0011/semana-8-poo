@@ -1,16 +1,24 @@
 import bici.*
 import accesorio.*
 
-describe "bici_1"{
+describe "Test bicicletas"{
 	test "test_bici_1" {
-		var b1 = new Bici(rodado=28,largo=150,marca="Olmo")
-		b1.agregarAccesorio(farolito) 
+		var bicicleta = new Bici(rodado=28,largo=150,marca="Olmo")
+		bicicleta.agregarAccesorio(farolito) 
 		
-		assert.equals(85, b1.alrtura())
-		assert.equals(34, b1.velocidadCrucero())
-		assert.equals(0, b1.carga())
-		assert.equals(14.5, b1.peso())
-		
+		assert.equals(85, bicicleta.altura())
+		assert.equals(34, bicicleta.velocidadCrucero())
+		assert.equals(0, bicicleta.carga())
+		assert.equals(14.5, bicicleta.peso())
+		assert.equals(true, bicicleta.tieneLuz())
 	}	
+	
+	
+	test "test_bici_2"{
+		var bicicleta = new Bici(rodado=26,largo=110,marca="Leganano")
+		bicicleta.agregarAccesorio(farolito)
+		
+		assert.equals(true, bicicleta.tieneLuz())
+	}
 }
 

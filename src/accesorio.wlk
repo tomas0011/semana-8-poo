@@ -1,5 +1,5 @@
 object farolito{
-	method peso() = return 500
+	method peso() = return 0.5
 	method carga() = return 0
 	method esLuminoso() = return  true
 }

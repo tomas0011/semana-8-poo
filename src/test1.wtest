@@ -1,10 +1,16 @@
-
+import bici.*
+import accesorio.*
 
 describe "bici_1"{
 	test "test_bici_1" {
+		var b1 = new Bici(rodado=28,largo=150,marca="Olmo")
+		b1.agregarAccesorio(farolito) 
 		
-		assert.that(true)
-	
+		assert.equals(85, b1.alrtura())
+		assert.equals(34, b1.velocidadCrucero())
+		assert.equals(0, b1.carga())
+		assert.equals(14.5, b1.peso())
+		
 	}	
 }
 

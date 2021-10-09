@@ -6,11 +6,20 @@ class Bici{
 	var property marca
 	var accesorios = []
 	
+	
+	method agregarAccesorio(accesorio){
+		accesorios.add(accesorio)
+	}
+	
+	method quitarAccesorio(accesorio){
+		accesorios.remove(accesorio)
+	}
+	
 	method altura(){
 		return rodado*2.5 + 15
 	}
 	
-	method velocidad(){
+	method velocidadCrucero(){
 		return if (largo > 120) {
 			rodado+6
 		} else {
@@ -23,5 +32,11 @@ class Bici{
 	method peso() = return rodado/2 + accesorios.sum( { accesorio => accesorio.peso()} )
 	
 	method tieneLuz() = return accesorios.any( { accesorio => accesorio.esLuminoso() } )
+	
+	
+	method tieneAccesorios(){
+		return accesorios.size() > 0
+	}
+	
 }
 

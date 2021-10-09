@@ -15,54 +15,46 @@ dep.agregarBici(b4)
 		
 
 class Deposito {
-	var bicicletas = []
+	const bicicletas = []
 	
 	method agregarBici(bici){
 		bicicletas .add(bici)
 	}
 	
-	method bicicletasEnDeposito(){
+	method bicicletasEnDeposito() {
 		return bicicletas 
 	}
 	
-	method bicisRapidas(){
-		return bicicletas.filter( {bici => bici.velocidadCrucero() > 25} )
+	method bicisRapidas() {
+		return bicicletas.filter( { bici => bici.velocidadCrucero() > 25} )
 	}
 	
-	
-	
-	method marcas(){
-		var lista = #{}
-		lista.addAll( bicicletas.map( {bici => bici.marca()} ) )
+	method marcas() {
+		const lista = #{}
+		lista.addAll( bicicletas.map( { bici => bici.marca() } ) )
 		return lista
 		
 	}
 	
-	method esNocturno(){
+	method esNocturno() {
 		return bicicletas.all( { bici => bici.tieneLuz() } )
 	}
 	
-	
-	method hayCapazDeCargar_(kg){
-		return bicicletas.any( {bici => bici.carga() >= kg*1000} )
+	method hayCapazDeCargar_(kg) {
+		return bicicletas.any( { bici => bici.carga() >= kg * 1000 } )
 	}
 	
-	
-	//---------------------------------------------------
-	method marcaDeBiciMasRapida(){
+	method marcaDeBiciMasRapida() {
 		return bicicletas.max( { bici => bici.velocidadCrucero() } ).marca()
 	}
 	
-	method cargaTotalDeBicisMasLargas(){
+	method cargaTotalDeBicisMasLargas() {
 		return bicicletas.filter( { bici => bici.largo() > 170 } ).sum( { bici => bici.carga() } )
 	}
 	
-	
-	method cantidadDeBicisSinAccesorios(){
+	method cantidadDeBicisSinAccesorios() {
 		return bicicletas.count( { bici => not bici.tieneAccesorios() } )
 	}
-	
-	
 	
 	method bicisCompanieras(bicicletaAComparar) {
 		return bicicletas.filter( { biciComparada => (

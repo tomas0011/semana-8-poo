@@ -64,11 +64,11 @@ class Deposito {
 	
 	
 	
-	method bicisCompanieras(bicicleta) {
-		return bicicletas.filter( { bici => (
-					(bici.marca() == bicicleta.marca())
-					and ((bici.largo() - bicicleta.largo()).abs() <= 10)
-					and (bici != bicicleta)
+	method bicisCompanieras(bicicletaAComparar) {
+		return bicicletas.filter( { biciComparada => (
+					(biciComparada.marca() == bicicletaAComparar.marca())
+					and ((biciComparada.largo() - bicicletaAComparar.largo()).abs() <= 10)
+					and (biciComparada != bicicletaAComparar)
 				)
 			}
 		)

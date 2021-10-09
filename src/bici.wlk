@@ -18,6 +18,7 @@ class Bici{
 		return rodado*2.5 + 15
 	}
 	
+
 	method velocidadCrucero() {
 		return if (largo > 120) {
 			rodado+6
@@ -32,9 +33,5 @@ class Bici{
 	
 	method tieneLuz() = return accesorios.any( { accesorio => accesorio.esLuminoso() } )
 	
-	method tieneAccesorios(){
-		return accesorios.size() > 0
-	}
-	
-}
+	method cantidadAccesoriosLivianos(){return accesorios.count({a => a.peso() < 1})}
 

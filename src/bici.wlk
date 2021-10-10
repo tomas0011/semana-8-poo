@@ -33,5 +33,8 @@ class Bici{
 	
 	method tieneLuz() = return accesorios.any( { accesorio => accesorio.esLuminoso() } )
 	
-	method cantidadAccesoriosLivianos(){return accesorios.count({a => a.peso() < 1})}
+	method cantidadAccesoriosLivianos(){
+		return accesorios.count({a => a.peso() < 1})
+	}
 
+}

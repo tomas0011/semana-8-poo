@@ -1,0 +1,48 @@
+import bici.*
+import accesorio.*
+import deposito.*
+
+describe "Hay compañeras: " {
+	const deposito = new Deposito()
+	
+	test "Sin compañeras deberia devolver false" {
+		assert.notThat(deposito.hayCompanieras())
+	}
+	
+	test "Con compañeras deberia devolver true" {
+		const bici1 = new Bici(rodado=28, largo=150, marca="Olmo")
+		const bici2 = new Bici(rodado=27, largo=140, marca="Olmo")
+		deposito.agregarBici(bici1)
+		deposito.agregarBici(bici2)
+		assert.that(deposito.hayCompanieras())
+	}
+}
+
+describe "Parejas de compañeras: " {
+	const deposito = new Deposito()
+	const bici1 = new Bici(rodado=28, largo=150, marca="Olmo")
+	const bici2 = new Bici(rodado=27, largo=140, marca="Olmo")
+	const bici3 = new Bici(rodado=28, largo=150, marca="BMX")
+	const bici4 = new Bici(rodado=27, largo=140, marca="BMX")
+	
+	method initialize() {
+		deposito.agregarBici(bici1)
+		deposito.agregarBici(bici2)
+	}
+	
+	test "Deberia devolver solo un grupo" {
+		assert.equals(1, deposito.parejasDeCompanieras().size())
+	}
+	
+	test "Deberia devolver dos grupos" {
+		deposito.agregarBici(bici3)
+		deposito.agregarBici(bici4)
+		assert.equals(2, deposito.parejasDeCompanieras().size())
+	}
+}
+
+describe "Se hizo la luz: " {
+	test "asd" {
+		assert.that(true)
+	}
+}

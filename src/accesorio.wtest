@@ -3,11 +3,7 @@ import accesorio.*
 
 describe "Accesorio: " {
 	const farolito = new Farolito()
-	const canasto = new Canasto(volumen = 10)
-	const morralDeBici = new MorralDeBici(largo = 12, tieneOjoDeGato = true)
-
-	// FAROLITO
-
+	
 	test "el peso de farolito deberia ser igual a 0.5" {
 		assert.equals(0.5, farolito.peso())
 	}
@@ -19,8 +15,10 @@ describe "Accesorio: " {
 	test "el farolito deberia ser luminoso" {
 		assert.that(farolito.esLuminoso())
 	}
-	
-	// CANASTO
+}
+
+describe "Canasto: " {
+	const canasto = new Canasto(volumen = 10)
 	
 	test "el volumen del canasto deberia ser 10" {
 		assert.equals(10, canasto.volumen())
@@ -37,8 +35,10 @@ describe "Accesorio: " {
 	test "el canasto no deberia ser luminoso" {
 		assert.notThat(canasto.esLuminoso())
 	}
-	
-	// MORRAL
+}
+
+describe "Morral" {
+	const morralDeBici = new MorralDeBici(largo = 12, tieneOjoDeGato = true)
 	
 	test "el largo del morral deberia ser 10" {
 		assert.equals(12, morralDeBici.largo())

@@ -1,0 +1,46 @@
+import bici.*
+import accesorio.*
+import deposito.*
+
+describe "Test de deposito"{
+	const farolito = new Farolito()
+	const bici1 = new Bici(rodado=28,largo=150,marca="Olmo")
+	const bici2 = new Bici(rodado=26,largo=110,marca="Legnano")
+	const bici3 = new Bici(rodado = 20, largo = 90,marca="Legnano")
+	const deposito = new Deposito()
+	
+	method initialize(){
+		bici1.agregarAccesorio(farolito) 
+		bici2.agregarAccesorio(farolito)
+		bici3.agregarAccesorio(new MorralDeBici(largo = 6, tieneOjoDeGato = false))
+		deposito.agregarBici(bici1)
+		deposito.agregarBici(bici2)
+		deposito.agregarBici(bici3)
+	}
+	
+	test "Bicicletas más rapidas" {
+		assert.equals([bici1, bici2], deposito.bicisRapidas())	
+	}
+	
+	test "Marcas de las bicicletas"{
+		assert.equals(#{"Olmo", "Legnano"}, deposito.marcas() )
+	}
+	
+	test "Deposito nocturo"{
+		assert.equals(false, deposito.esNocturno())
+	}
+	
+	test "No puede cargar 10k ni 50kg"{
+		assert.equals(false, deposito.hayCapazDeCargar_(10))
+		assert.equals(false, deposito.hayCapazDeCargar_(50))
+	}
+	
+	test "Puede cargar 10kg, pero no 50kg"{
+		const bici4 = new Bici(rodado=26,largo=110,marca="Legnano")
+		bici4.agregarAccesorio(new MorralDeBici(largo = 30, tieneOjoDeGato = false))
+		deposito.agregarBici(bici4)
+		
+		assert.equals(true, deposito.hayCapazDeCargar_(10))
+		assert.equals(false, deposito.hayCapazDeCargar_(50))
+	}
+}

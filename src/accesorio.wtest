@@ -1,7 +1,7 @@
 import bici.*
 import accesorio.*
 
-describe "Accesorio: " {
+describe "Farolito: " {
 	const farolito = new Farolito()
 	
 	test "el peso de farolito deberia ser igual a 0.5" {

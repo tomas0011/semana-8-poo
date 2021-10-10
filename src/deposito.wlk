@@ -52,4 +52,17 @@ class Deposito {
 			}
 		)
 	}
+	
+	method hayCompanieras() {
+		return bicicletas.any( { bicicleta => self.bicisCompanieras(bicicleta).size() > 0 } )
+	}
+	
+	method parejasDeCompanieras() {
+		const pares = #{}
+		pares.addAll(bicicletas.map({bicicleta => {
+			return self.bicisCompanieras(bicicleta).add(bicicleta)
+		}}))
+		return pares
+	}
+	
 }

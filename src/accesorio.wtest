@@ -1,0 +1,20 @@
+import bici.*
+import accesorio.*
+
+describe "Accesorio: " {
+	const farolito = new Farolito()
+	const canasto = new Canasto(volumen = 10)
+	const morralDeBici = new MorralDeBici(largo = 10, tieneOjoDeGato = false)
+
+	test "el peso de farolito deberia ser igual a 0.5" {
+		assert.equals(0.5, farolito.peso())
+	}
+	
+	test "la carga de farolito deberia ser igual a 0" {
+		assert.equals(0, farolito.carga())
+	}
+	
+	test "el farolito deberia ser luminoso" {
+		assert.that(farolito.esLuminoso())
+	}
+}

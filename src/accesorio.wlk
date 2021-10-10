@@ -1,23 +1,21 @@
-object farolito {
-	method peso() = return 0.5
-	method carga() = return 0
-	method esLuminoso() = return  true
+class Farolito {
+	method peso() = 0.5
+	method carga() = 0
+	method esLuminoso() = true
 }
 
 class Canasto {
-
 	var property volumen
-	method peso() = return volumen / 10
-	method carga() = return volumen * 2
-	method esLuminoso() = return false
+	method peso() = volumen / 10
+	method carga() = volumen * 2
+	method esLuminoso() = false
 }
 
 class MorralDeBici {
-
 	var property largo
 	var property tieneOjoDeGato
 	
-	method peso() {return 1.2}
-	method carga(){return largo/3}
-	method esLuminoso() {return tieneOjoDeGato}
+	method peso() = 1.2
+	method carga() = largo / 3
+	method esLuminoso() = tieneOjoDeGato
 }

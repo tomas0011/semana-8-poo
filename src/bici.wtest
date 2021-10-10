@@ -2,7 +2,7 @@ import bici.*
 import accesorio.*
 
 
-describe " Bicicletas"{
+describe "Bicicletas"{
 	
 	
 	const bici1 = new Bici(rodado = 28, largo = 150 , marca = "Olmo" ,accesorios = [farolito])
@@ -16,7 +16,7 @@ describe " Bicicletas"{
 	const bici3 = new Bici(rodado = 20, largo = 90 , marca = "Legnano" ,accesorios = [morral2])
 			
 	
-	test "Bicicleta Uno"{
+	test "Bicicleta Uno" {
 		assert.equals(85, bici1.altura())
 		assert.equals(34, bici1.velocidadCrucero())
 		assert.equals(0 , bici1.carga())
@@ -25,7 +25,7 @@ describe " Bicicletas"{
 		assert.equals(1 , bici1.cantidadAccesoriosLivianos())
 	}
 	
-	test "Bicicleta Dos"{
+	test "Bicicleta Dos" {
 		assert.equals(80, bici2.altura())
 		assert.equals(28, bici2.velocidadCrucero())
 		assert.equals(23 , bici2.carga())
@@ -34,7 +34,7 @@ describe " Bicicletas"{
 		assert.equals(2 , bici2.cantidadAccesoriosLivianos())
 	}
 	
-	test "Bicicleta tres"{	
+	test "Bicicleta tres" {	
 		assert.equals(65, bici3.altura())
 		assert.equals(22, bici3.velocidadCrucero())
 		assert.equals(2 , bici3.carga())

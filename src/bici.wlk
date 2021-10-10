@@ -1,6 +1,6 @@
 import accesorio.*
 
-class Bici{
+class Bici {
 	var property rodado
 	var property largo
 	var property marca
@@ -15,7 +15,7 @@ class Bici{
 	}
 	
 	method altura() {
-		return rodado*2.5 + 15
+		return rodado * 2.5 + 15
 	}
 	
 
@@ -29,9 +29,9 @@ class Bici{
 	
 	method carga() = return accesorios.sum( { accesorio => accesorio.carga()} )
 	
-	method peso() = return rodado/2 + accesorios.sum( { accesorio => accesorio.peso()} )
+	method peso() = return rodado/2 + accesorios.sum( { accesorio => accesorio.peso() } )
 	
 	method tieneLuz() = return accesorios.any( { accesorio => accesorio.esLuminoso() } )
 	
-	method cantidadAccesoriosLivianos(){return accesorios.count({a => a.peso() < 1})}
+	method cantidadAccesoriosLivianos() { return accesorios.count( { a => a.peso() < 1 } ) }
 

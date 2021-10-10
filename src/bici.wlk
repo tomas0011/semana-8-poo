@@ -1,16 +1,25 @@
 import accesorio.*
 
-class Bici{
+class Bici {
 	var property rodado
 	var property largo
 	var property marca
-	var accesorios = []
+	const accesorios = []
 	
-	method altura(){
-		return rodado*2.5 + 15
+	method agregarAccesorio(accesorio) {
+		accesorios.add(accesorio)
 	}
 	
-	method velocidad(){
+	method quitarAccesorio(accesorio) {
+		accesorios.remove(accesorio)
+	}
+	
+	method altura() {
+		return rodado * 2.5 + 15
+	}
+	
+
+	method velocidadCrucero() {
 		return if (largo > 120) {
 			rodado+6
 		} else {
@@ -18,10 +27,11 @@ class Bici{
 		}
 	}
 	
-	method carga() = return accesorios.sum( { accesorio => accesorio.carga()} )
+	method carga() = accesorios.sum( { accesorio => accesorio.carga()} )
 	
-	method peso() = return rodado/2 + accesorios.sum( { accesorio => accesorio.peso()} )
+	method peso() = rodado/2 + accesorios.sum( { accesorio => accesorio.peso() } )
 	
-	method tieneLuz() = return accesorios.any( { accesorio => accesorio.esLuminoso() } )
-}
+	method tieneLuz() = accesorios.any( { accesorio => accesorio.esLuminoso() } )
 
+	method cantidadAccesoriosLivianos() = accesorios.count( { a => a.peso() < 1 } )
+}

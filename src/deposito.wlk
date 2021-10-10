@@ -1,17 +1,5 @@
 import bici.*
 import accesorio.*
-/*
-var b1 = new Bici(rodado=26,largo=120, marca="BMX")
-var b2 = new Bici(rodado=15,largo=90, marca="playera")
-var b3 = new Bici(rodado=20,largo=110, marca="BMX")
-var b4 = new Bici(rodado=26,largo=122, marca="BMX")
-var dep = new Deposito()
-dep.agregarBici(b1)
-dep.agregarBici(b2)
-dep.agregarBici(b4)
-
-*/
-		
 
 class Deposito {
 	const bicicletas = []

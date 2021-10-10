@@ -1,24 +1,22 @@
 import bici.*
 import accesorio.*
 
-
-
-
-describe " Bicicletas"{
-	
-	
+describe "Bicicletas"{
+	// Ejemplo 1
+	const farolito = new Farolito() 
 	const bici1 = new Bici(rodado = 28, largo = 150 , marca = "Olmo" ,accesorios = [farolito])
 	
+	// Ejemplo 2
 	const canasto1 = new Canasto(volumen = 8)
 	const morral1 = new MorralDeBici(largo = 21 , tieneOjoDeGato = true)
-	
 	const bici2 = new Bici(rodado = 26, largo = 110 , marca = "Legnano" ,accesorios = [farolito,canasto1, morral1])
 	
+	// Ejemplo 2
 	const morral2 = new MorralDeBici(largo = 6 , tieneOjoDeGato = false)
 	const bici3 = new Bici(rodado = 20, largo = 90 , marca = "Legnano" ,accesorios = [morral2])
 			
 	
-	test "Bicicleta Uno"{
+	test "Ejemplo Uno" {
 		assert.equals(85, bici1.altura())
 		assert.equals(34, bici1.velocidadCrucero())
 		assert.equals(0 , bici1.carga())
@@ -27,7 +25,7 @@ describe " Bicicletas"{
 		assert.equals(1 , bici1.cantidadAccesoriosLivianos())
 	}
 	
-	test "Bicicleta Dos"{
+	test "Ejemplo Dos" {
 		assert.equals(80, bici2.altura())
 		assert.equals(28, bici2.velocidadCrucero())
 		assert.equals(23 , bici2.carga())
@@ -36,7 +34,7 @@ describe " Bicicletas"{
 		assert.equals(2 , bici2.cantidadAccesoriosLivianos())
 	}
 	
-	test "Bicicleta tres"{	
+	test "Ejemplo tres" {	
 		assert.equals(65, bici3.altura())
 		assert.equals(22, bici3.velocidadCrucero())
 		assert.equals(2 , bici3.carga())

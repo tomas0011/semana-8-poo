@@ -4,7 +4,9 @@ import accesorio.*
 describe "Accesorio: " {
 	const farolito = new Farolito()
 	const canasto = new Canasto(volumen = 10)
-	const morralDeBici = new MorralDeBici(largo = 10, tieneOjoDeGato = false)
+	const morralDeBici = new MorralDeBici(largo = 12, tieneOjoDeGato = true)
+
+	// FAROLITO
 
 	test "el peso de farolito deberia ser igual a 0.5" {
 		assert.equals(0.5, farolito.peso())
@@ -16,5 +18,45 @@ describe "Accesorio: " {
 	
 	test "el farolito deberia ser luminoso" {
 		assert.that(farolito.esLuminoso())
+	}
+	
+	// CANASTO
+	
+	test "el volumen del canasto deberia ser 10" {
+		assert.equals(10, canasto.volumen())
+	}
+	
+	test "el peso del canasto deberia ser 1" {
+		assert.equals(1, canasto.peso())
+	}
+	
+	test "la carga del canasto deberia ser 20" {
+		assert.equals(20, canasto.carga())
+	}
+	
+	test "el canasto no deberia ser luminoso" {
+		assert.notThat(canasto.esLuminoso())
+	}
+	
+	// MORRAL
+	
+	test "el largo del morral deberia ser 10" {
+		assert.equals(12, morralDeBici.largo())
+	}
+	
+	test "el morral deberia de tener ojo de gato" {
+		assert.that(morralDeBici.tieneOjoDeGato())
+	}
+	
+	test "el peso del morral deberia ser 1.2" {
+		assert.equals(1.2, morralDeBici.peso())
+	}
+	
+	test "la carga del morral deberia ser 4" {
+		assert.equals(4, morralDeBici.carga())
+	}
+	
+	test "el morral deberia ser luminoso" {
+		assert.that(morralDeBici.esLuminoso())
 	}
 }

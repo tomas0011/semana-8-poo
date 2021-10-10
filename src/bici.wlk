@@ -27,11 +27,11 @@ class Bici {
 		}
 	}
 	
-	method carga() = return accesorios.sum( { accesorio => accesorio.carga()} )
+	method carga() = accesorios.sum( { accesorio => accesorio.carga()} )
 	
-	method peso() = return rodado/2 + accesorios.sum( { accesorio => accesorio.peso() } )
+	method peso() = rodado/2 + accesorios.sum( { accesorio => accesorio.peso() } )
 	
-	method tieneLuz() = return accesorios.any( { accesorio => accesorio.esLuminoso() } )
-	
-	method cantidadAccesoriosLivianos() { return accesorios.count( { a => a.peso() < 1 } ) }
+	method tieneLuz() = accesorios.any( { accesorio => accesorio.esLuminoso() } )
 
+	method cantidadAccesoriosLivianos() = accesorios.count( { a => a.peso() < 1 } )
+}

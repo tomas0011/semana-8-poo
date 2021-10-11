@@ -42,7 +42,25 @@ describe "Parejas de compañeras: " {
 }
 
 describe "Se hizo la luz: " {
-	test "asd" {
-		assert.that(true)
+	const deposito = new Deposito()
+	const farolito = new Farolito()
+	const bici1 = new Bici(rodado=28, largo=150, marca="Olmo")
+	const bici2 = new Bici(rodado=27, largo=140, marca="Olmo", accesorios=[farolito])
+	const bici3 = new Bici(rodado=28, largo=150, marca="BMX")
+	const bici4 = new Bici(rodado=27, largo=140, marca="BMX", accesorios=[farolito])
+	
+	method initialize() {
+		deposito.agregarBici(bici1)
+		deposito.agregarBici(bici2)
+	}
+	
+	test "no deberia de haberse hecho la luz" {
+		deposito.agregarBici(bici3)
+		assert.notThat(deposito.seHizoLaLuz())
+	}
+	
+	test "deberia de haberse hecho la luz" {
+		deposito.agregarBici(bici4)
+		assert.that(deposito.seHizoLaLuz())
 	}
 }

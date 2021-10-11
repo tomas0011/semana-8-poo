@@ -3,9 +3,13 @@ import accesorio.*
 
 class Deposito {
 	const bicicletas = []
+	const bicicletasDespuesDePrimeraLuz = []
 	
 	method agregarBici(bici){
-		bicicletas .add(bici)
+		bicicletas.add(bici)
+		if (bicicletasDespuesDePrimeraLuz.size() > 0 or bici.tieneLuz()){
+			bicicletasDespuesDePrimeraLuz.add(bici)
+		}
 	}
 	
 	method bicicletasEnDeposito() {
@@ -52,4 +56,20 @@ class Deposito {
 			}
 		)
 	}
+	
+	method hayCompanieras() {
+		return bicicletas.any( { bicicleta => self.bicisCompanieras(bicicleta).size() > 0 } )
+	}
+	
+	method parejasDeCompanieras() {
+		return bicicletas.map({ bicicleta => bicicletas.filter( { biciComparada => (
+						(biciComparada.marca() == bicicleta.marca())
+						and ((biciComparada.largo() - bicicleta.largo()).abs() <= 10)
+					)
+				}
+			)
+		}).asSet()
+	}
+	
+	method seHizoLaLuz() = bicicletasDespuesDePrimeraLuz.all({ bicicleta => bicicleta.tieneLuz() })
 }

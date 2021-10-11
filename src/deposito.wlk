@@ -3,9 +3,13 @@ import accesorio.*
 
 class Deposito {
 	const bicicletas = []
+	const bicicletasDespuesDePrimeraLuz = []
 	
 	method agregarBici(bici){
-		bicicletas .add(bici)
+		bicicletas.add(bici)
+		if (bicicletasDespuesDePrimeraLuz.size() > 0 or bici.tieneLuz()){
+			bicicletasDespuesDePrimeraLuz.add(bici)
+		}
 	}
 	
 	method bicicletasEnDeposito() {
@@ -67,4 +71,5 @@ class Deposito {
 		}).asSet()
 	}
 	
+	method seHizoLaLuz() = bicicletasDespuesDePrimeraLuz.all({ bicicleta => bicicleta.tieneLuz() })
 }

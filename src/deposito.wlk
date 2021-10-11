@@ -58,11 +58,13 @@ class Deposito {
 	}
 	
 	method parejasDeCompanieras() {
-		const pares = #{}
-		pares.addAll(bicicletas.map({bicicleta => {
-			return self.bicisCompanieras(bicicleta).add(bicicleta)
-		}}))
-		return pares
+		return bicicletas.map({ bicicleta => bicicletas.filter( { biciComparada => (
+						(biciComparada.marca() == bicicleta.marca())
+						and ((biciComparada.largo() - bicicleta.largo()).abs() <= 10)
+					)
+				}
+			)
+		}).asSet()
 	}
 	
 }
